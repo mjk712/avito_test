@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  avitotech-testtask:
+    build: ./
+    command: ./avitotech-testtask
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - fullstack
+
+
+  db:
+    image: postgres:latest
+    container_name: "postgresdb"
+    ports:
+      - "5436:5436"
+    environment:
+      - POSTGRES_DB=dinamicsegments
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    networks:
+      - fullstack
+
+networks:
+  fullstack:
+    driver: bridge

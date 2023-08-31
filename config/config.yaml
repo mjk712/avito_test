@@ -1,0 +1,6 @@
+app:
+  name: 'dinamic-segment-backend'
+  version: '1.0.0'
+
+http:
+  port: 8080
